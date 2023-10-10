@@ -5,8 +5,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const CardForm = props => {
-  const [title, setTitle] = useState('');
+  
   const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
