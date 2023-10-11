@@ -3,9 +3,10 @@ import initialState from './initialState';
 import shortid from 'shortid';
 
 //selectors
-export const getFilteredCards = (state, columnId) => state.cards
+export const getFilteredCards = (state, columnId) => {
+   return state.cards
   .filter(card => card.columnId === columnId && card.title.toLowerCase().includes(state.searchString.toLowerCase()));
-
+}
 const reducer = (state = { columns: [], cards: [], searchString: '' }, action) => {
     switch (action.type) {
       case 'ADD_COLUMN':
