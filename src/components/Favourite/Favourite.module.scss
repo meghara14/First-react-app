@@ -1,0 +1,12 @@
+@import '../../styles/settings.scss';
+
+.favorite {
+  padding: $base-size;
+}
+
+.subtitle {
+  padding: ($base-size * 2) 0;
+  text-align: center;
+  font-size: ($base-size * 2);
+  
+}
