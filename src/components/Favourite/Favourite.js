@@ -3,7 +3,7 @@ import PageTitle from '../PageTitle/PageTitle';
 
 const Favorite = () => {
     return (
-      <div class={styles.favorite}>
+      <div className={styles.favorite}>
         <PageTitle>Favorite</PageTitle>
         <p class={styles.subtitle}>This is the Favorite page.</p>
       </div>
