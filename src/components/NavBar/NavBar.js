@@ -1,21 +1,24 @@
-import styles from './NavBar.module.scss'
-import Container from '../Container/Container'
+import styles from './NavBar.module.scss';
+import Container from '../Container/Container';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-    return (
-        <nav className={styles.navBar}>
-        <Container>
-          <div className={styles.homeIconWrapper}>
-            <a href="/" className={styles.homeIcon}><span className='fa fa-bars'></span></a>
-          </div>
-          <ul className={styles.linksListWrapper}>
-            <li className={styles.link}><a href="/">Home</a></li>
-            <li className={styles.link}><a href="/favorite">Favorite</a></li>
-            <li className={styles.link}><a href="/about">About</a></li>
+  return (
+    <nav>
+      <Container>
+        <div className={styles.navbar}>
+          <a href="/" >
+            <i className="fa fa-tasks"></i>
+          </a>
+          <ul>
+            <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/">Home</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/favorite">Favorite</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? styles.linkActive : undefined} to="/about">About</NavLink></li>
           </ul>
-        </Container>
-      </nav>
-    )
-}
+        </div>
+      </Container>
+    </nav>
+  );
+};
 
-export default NavBar; 
+export default NavBar;
