@@ -1,13 +1,22 @@
 import styles from './Favourite.module.scss'
 import PageTitle from '../PageTitle/PageTitle';
+import Card from '../Card/Card';
+import { useSelector } from 'react-redux';
 
 const Favorite = () => {
-    return (
-      <div className={styles.favorite}>
-        <PageTitle>Favorite</PageTitle>
-        <p class={styles.subtitle}>This is the Favorite page.</p>
+
+  const favoriteCards = useSelector(state => state.cards.filter(card => card.isFavorite));
+  return (
+    <div className={styles.favorite}>
+      <PageTitle>Favorite</PageTitle>
+      <p className={styles.subtitle}>This is the Favorite page.</p>
+      <div className={styles.cards}>
+        {favoriteCards.map(card => (
+          <Card key={card.id} {...card} />
+        ))}
       </div>
-    );
-  };
-  
-  export default Favorite;
+    </div>
+  );
+};
+
+export default Favorite;
