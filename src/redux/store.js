@@ -22,21 +22,28 @@ export const addCard = payload => ({ type: 'ADD_CARD', payload })
 
 export const updateSearching = payload => ({ type: 'UPDATE_SEARCHSTRING', payload })
 
+export const addList = (title, description) => ({  type: 'ADD_LIST',  payload: { title, description, id: shortid(), },
+});
+
 const reducer = (state = { columns: [], cards: [], searchString: '' }, action) => {
-    switch (action.type) {
-      case 'ADD_COLUMN':
-        return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }] };
-      case 'ADD_CARD':
-        return {
-          ...state,
-          cards: [...state.cards, action.newCard],
-        };
-      case 'UPDATE_SEARCHSTRING':
-        return { ...state, searchString: action.payload };
-      default:
-        return state;
+  switch (action.type) {
+    case 'ADD_COLUMN':
+      return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }] };
+    case 'ADD_CARD':
+      return {
+        ...state,
+        cards: [...state.cards, action.newCard],
+      };
+    case 'UPDATE_SEARCHSTRING':
+      return { ...state, searchString: action.payload };
+     case 'ADD_LIST':
+      return { ...state, lists: [...state.lists, { ...action.payload }] };
+     default:
+      return state;
     }
   };
+
+
 
 
 
@@ -45,6 +52,5 @@ const store = createStore(
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
 
 export default store;
