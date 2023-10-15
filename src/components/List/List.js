@@ -5,7 +5,7 @@ import ColumnForm from '../ColumnForm/ColumnForm';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getColumnsByList } from '../../redux/store';
-import { getListById } from '../../redux/store';
+import { getListById } from '../../redux/listsRedux';
 import { Navigate } from 'react-router-dom';
 
 const List = () => {
