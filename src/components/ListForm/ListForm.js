@@ -3,7 +3,7 @@ import Button from '../Button/Button.js';
 import TextInput from '../TextInput/TextInput.js';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addList } from '../../redux/store'; // Importujemy naszą nową akcję
+import { addList } from '../../redux/listsRedux';
 
 const ListForm = props => {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const ListForm = props => {
   
     const handleSubmit = e => {
       e.preventDefault();
-        dispatch(addList(title, description));
+        dispatch(addList({title, description}));
         setTitle('');
         setDescription('');
     }

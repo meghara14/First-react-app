@@ -1,4 +1,7 @@
 
+export const updateSearching = payload => ({ type: 'UPDATE_SEARCHSTRING', payload })
+
+
 
 const searchStringReducer = (statePart = '', action) => {
     switch(action.type) {
